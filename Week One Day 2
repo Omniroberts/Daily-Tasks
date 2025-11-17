@@ -1,0 +1,274 @@
+# Pentesting Bootcamp – Day 2
+Your complete GitHub-ready notes for:
+- Networking Fundamentals (deep definitions)
+- Burp Suite (setup + practice)
+- HTB practice
+- Bug bounty examples
+- Commands, exercises, and structure
+
+---
+
+# 📌 Day 2 Overview
+**Focus Areas:**
+- Burp Suite basics
+- Core networking fundamentals
+- Essential CLI tools
+- HTB machines for practice
+- Real bug bounty examples
+- Hands-on exercises
+
+---
+
+# ⭐ Step 1 — Networking Fundamentals (Pentester Level)
+
+## 🔹 IP Addressing
+### IPv4
+- 32-bit numerical address
+- Format: `192.168.1.15`
+- Used across most pentesting targets
+- ~4.3 billion possible addresses
+
+**Commands:**
+```bash
+ip a
+```
+Identify your IPv4 address under `inet`.
+
+### IPv6
+- 128-bit address
+- Format: `2001:0db8:85a3:0000:8a2e:0370:7334`
+
+**Commands:**
+```bash
+ip a | grep inet6
+```
+---
+
+## 🔹 Public vs Private IPs
+### Private IP Ranges:
+- `10.0.0.0 – 10.255.255.255`
+- `172.16.0.0 – 172.31.255.255`
+- `192.168.0.0 – 192.168.255.255`
+
+**Identify devices on your LAN:**
+```bash
+arp -a
+```
+
+### Find your public IP:
+```bash
+curl ifconfig.me
+```
+
+---
+
+## 🔹 Subnets & CIDR
+- `/24` = 255.255.255.0 = 254 hosts
+- `/16` = 255.255.0.0 = 65,534 hosts
+
+**View your subnet:**
+```bash
+ip route
+```
+
+---
+
+## 🔹 Gateways
+Your gateway is your router.
+
+**Find default gateway:**
+```bash
+ip route | grep default
+```
+
+---
+
+## 🔹 TCP vs UDP
+### TCP
+- Reliable
+- Connection-based
+- Uses 3-way handshake
+- Used for: HTTP, SSH, SMB, FTP, SMTP
+
+### UDP
+- Connectionless
+- Fast but unreliable
+- Used for: DNS, VoIP, streaming
+
+**View open ports:**
+```bash
+ss -tulnp
+```
+
+---
+
+## 🔹 TCP 3-Way Handshake
+1. SYN — client requests connection
+2. SYN/ACK — server acknowledges
+3. ACK — client confirms
+
+Capture this in Wireshark using:
+```
+tcp.handshake
+```
+
+---
+
+## 🔹 Essential Networking Tools
+### ping
+Check connectivity + DNS.
+```bash
+ping 8.8.8.8
+ping google.com
+```
+
+### traceroute
+View path to destination.
+```bash
+traceroute google.com
+```
+
+### netstat / ss
+Active connections + listeners.
+```bash
+ss -tulnp
+```
+
+### tcpdump
+CLI packet capture.
+```bash
+sudo tcpdump -i eth0
+```
+
+### Wireshark Filters:
+- `http.request`
+- `tcp.port == 80`
+- `dns`
+- `icmp`
+
+### DNS Tools
+```bash
+nslookup google.com
+dig google.com
+```
+
+### Interface Info
+```bash
+ip a
+ifconfig
+```
+
+### Routing Table
+```bash
+ip route
+```
+
+---
+
+# ⭐ Burp Suite (Day 2 Tasks)
+
+## 🔹 Tasks
+- Open Burp → Proxy → Intercept **OFF**
+- Use Burp Browser
+- Capture live traffic
+- Send requests to Repeater
+- Modify URLs, IDs, cookies
+- Analyze responses
+
+## 🔹 Practice Targets
+- PortSwigger Labs
+- OWASP Juice Shop
+- HackYourselfFirst
+
+---
+
+# ⭐ HTB Practice (Recommended Today)
+- Meow
+- Fawn
+- Lame
+- Redeemer
+
+Focus on:
+- Nmap scans
+- SMB enumeration
+- FTP login
+- HTTP analysis
+- Gobuster
+
+---
+
+# ⭐ Bug Bounty Study (HackerOne)
+Search reports for:
+- IDOR
+- Broken access control
+- Cookie tampering
+- Session/token reuse
+- Account takeover
+
+Study:
+- How they found the vuln
+- What request was modified
+- How the report was written
+
+---
+
+# ⭐ Hands-On Exercises (Day 2)
+
+## Exercise 1 — Scanner Commands
+```bash
+ping 8.8.8.8
+traceroute google.com
+ss -tulnp
+```
+
+## Exercise 2 — Inspect Traffic
+Use Wireshark:
+- visit a website
+- filter: `tcp.handshake`
+
+## Exercise 3 — Burp Repeater
+1. Capture a request
+2. Send to Repeater
+3. Modify URL parameter
+4. Observe changes
+
+## Exercise 4 — Nmap
+```bash
+nmap -sV -sC -A -Pn TARGET_IP
+```
+
+---
+
+# 📁 GitHub Folder Structure
+```
+Pentesting-Bootcamp-Day2/
+   ├── Networking/
+   │     ├── IP_addressing.md
+   │     ├── TCP_vs_UDP.md
+   │     ├── networking_tools.md
+   │
+   ├── BurpSuite/
+   │     ├── setup.md
+   │     ├── repeater.md
+   │     ├── proxy.md
+   │
+   ├── HTB-Notes/
+   │     ├── Meow.md
+   │     ├── Fawn.md
+   │     ├── Lame.md
+   │
+   ├── BugBounty/
+   │     ├── IDOR_examples.md
+   │     ├── Cookie_Tampering.md
+   │     ├── Broken_Access_Control.md
+   │
+   ├── Exercises/
+   │     ├── day2_practice.md
+   │
+   └── README.md
+```
+
+---
+
+# ✔️ End of Day 2 Notes
+Add this folder to GitHub and continue updating daily.
