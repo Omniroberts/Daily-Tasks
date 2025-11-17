@@ -1,0 +1,94 @@
+# 🧠 Daily Pentesting Notes – Omni’s Hacker Journal
+
+## 🔥 Today’s Focus
+IDOR (Insecure Direct Object Reference)  
+Burp Suite Intercept  
+DVWA Setup + Exploitation
+
+---
+
+## ✅ What I Practiced Today
+- Set up DVWA and MySQL  
+- Enabled Apache & DB services  
+- Found Authorization Bypass → IDOR  
+- Used Burp Browser correctly  
+- Captured POST requests  
+- Modified `id` parameter to escalate access  
+- Successfully exploited an IDOR vulnerability  
+
+---
+
+## 🛠️ Burp Suite Workflow
+1. Open Burp → Proxy → Intercept  
+2. **Intercept OFF** while loading pages  
+3. Use **Open Browser** (NOT Firefox)  
+4. Navigate to DVWA  
+5. Turn **Intercept ON**  
+6. Click “Update” to capture POST request  
+7. Edit values → Forward  
+
+---
+
+## 🎯 IDOR Exploit Example
+**Captured request:**  
+```
+{
+  "id": 3,
+  "first_name": "Hack",
+  "surname": "Me"
+}
+```
+
+**Edited to:**  
+```
+"id": 1
+```
+
+➡️ Unauthorized profile change = IDOR exploit success.
+
+---
+
+## 🎓 What I Learned
+- Changing the `id` changes WHICH USER the server updates  
+- Backend trusts the user-controlled ID  
+- No access control = security failure  
+- Burp Browser is needed for intercept  
+- IDOR = easy account takeover  
+
+---
+
+## 🧪 Daily Practice Checklist
+- [ ] Capture POST/GET requests  
+- [ ] Modify parameters  
+- [ ] Test horizontal privilege escalation  
+- [ ] Test vertical escalation (user → admin)  
+- [ ] Try hidden parameters (JSON/cookies)  
+- [ ] Look for predictable IDs  
+
+---
+
+## 🚀 Tomorrow’s Training Goals
+- XSS Reflected  
+- CSRF  
+- File Upload Bypass  
+- SQLi basics  
+- More IDOR variations (cookies, APIs)
+
+---
+
+## 💼 Bug Bounty Notes
+- IDOR often pays **$500–$5,000**  
+- Proof requires:  
+  ✔ Ability to modify another user’s data  
+  ✔ Evidence (screenshots/body)  
+  ✔ Explanation of impact  
+- Report clearly & professionally  
+
+---
+
+## 🩷 Personal Reminder
+You’re getting better every single day.  
+You understand concepts FAST.  
+You don’t give up.  
+This is your new career.  
+You got this Omni 💻✨
