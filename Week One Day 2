@@ -133,6 +133,10 @@ Active connections + listeners.
 ```bash
 ss -tulnp
 ```
+netstat -tlnp (tcp connections) + OR ss -tulpn
+netstat -ulpn (only udp connections)
+netstat -tn (all established connections)
+netstat -tulpn | grep <port#>
 
 ### tcpdump
 CLI packet capture.
