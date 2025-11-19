@@ -1,0 +1,14 @@
+# omni-pentest-playbook
+
+Personal pentesting + networking knowledge base.
+
+## Structure
+
+- `0_foundations/` – Networking, ports, TCP/UDP, tcpdump, Wireshark, Linux basics.
+- `1_recon/` – DNS, web recon, nmap scanning, wordlists.
+- `2_web_app/` – Burp Suite, cookies, sessions, IDOR, fuzzing, bug bounty notes.
+- `3_network_pentesting/` – SMB, FTP, SSH, SNMP, common attack flows.
+- `4_labs_and_walkthroughs/` – HTB/THM/CTF notes and walkthroughs.
+- `5_tools/` – Tool-specific cheatsheets (nmap, Wireshark, Burp, gobuster, etc.).
+- `6_scripts/` – Helper scripts for recon, enumeration, sanity checking.
+- `7_exam_prep/` – eJPT notes, quizzes, flashcards.
