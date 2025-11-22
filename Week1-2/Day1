@@ -1,0 +1,275 @@
+# 🌅 Day 1 – Networking Fundamentals & Light Recon
+
+This folder contains all work from **Day 1** of my pentesting journey.  
+Focus: *Networking basics, core recon commands, and bug bounty mindset.*
+
+---
+
+## 📌 Goals for Day 1
+
+- Understand basic networking concepts:
+  - IP address
+  - Public vs private IPs
+  - Gateway
+  - Subnet basics
+  - TCP vs UDP
+- Run essential commands:
+  - `ip a`
+  - `ping`
+  - `traceroute`
+  - `ss -tulpn`
+- Begin bug bounty pattern recognition
+- Document everything like a real pentester
+
+---
+
+## 📁 Folder Overview
+
+concepts/     → networking theory notes
+commands/     → outputs from today's terminal commands
+bug-bounty/   → first observations of URLs & parameters
+reflections/  → end-of-day thoughts & summary
+
+---
+
+## 🧠 Skills Learned Today
+
+- Identifying local IP and subnet
+- Recognizing network interfaces
+- Testing host connectivity
+- Understanding packet hops
+- Viewing active local ports
+- Building documentation discipline
+- Beginning bug bounty mindset
+
+---
+
+Day 1 complete. 🚀
+
+
+📁 concepts/networking-basics.md
+# 📘 Day 1 – Networking Basics
+
+## ⭐ What is an IP Address?
+A unique address assigned to a device on a network.
+
+- Example IPv4: `192.168.1.20`
+- Example IPv6: `fe80::f2de:f1ff:fe3b:1234`
+
+---
+
+## ⭐ Public vs Private IPs
+
+**Public IP** → internet-facing  
+**Private IP** → inside your home or local network  
+
+Common private ranges:
+- `192.168.x.x`
+- `10.x.x.x`
+- `172.16.x.x – 172.31.x.x`
+
+---
+
+## ⭐ What Is a Gateway?
+The router → the device that sends traffic from inside your network to the internet.
+
+---
+
+## ⭐ What Is a Subnet?
+A slice of a network.  
+Examples:
+- `/24` = standard home network
+- `/16` = larger network
+- `/8`  = massive network
+
+---
+
+## ⭐ TCP vs UDP
+- **TCP:** reliable, handshake (SYN → SYN/ACK → ACK)
+- **UDP:** fast, no handshake
+
+---
+
+## ⭐ Essential Day 1 Commands
+
+ip a
+ping
+traceroute
+ss -tulpn
+
+These commands form the foundation of all future pentesting.
+
+
+📁 commands/ip-a-output.md
+# 🖥️ `ip a` Output – Day 1
+
+## Purpose
+To identify:
+- local IP address
+- active interface
+- subnet
+- MAC address
+
+## Output
+(Paste your real terminal output here)
+
+## Notes
+- Active interface:
+- Local IP:
+- Subnet:
+
+
+📁 commands/ping-output.md
+# 📡 `ping` Output – Day 1
+
+## Purpose
+Check if a target host is alive.
+
+## Command
+```bash
+ping <target-ip>
+
+Output
+(Paste your real ping results here)
+Notes
+
+
+Packets sent:
+
+
+Packets received:
+
+
+Avg latency:
+
+
+
+---
+
+# 📁 **`commands/traceroute-output.md`**
+
+```markdown
+# 🛰️ `traceroute` Output – Day 1
+
+## Purpose
+See how many hops it takes to reach a host.
+
+## Command
+```bash
+traceroute <target-ip>
+
+Output
+(Paste your traceroute results here)
+Notes
+
+
+Number of hops:
+
+
+Slow or unusual hops:
+
+
+
+---
+
+# 📁 **`commands/ss-netstat-output.md`**
+
+```markdown
+# 🔎 `ss -tulpn` Output – Day 1
+
+## Purpose
+View active local ports, services, and processes.
+
+## Command
+```bash
+ss -tulpn
+
+Output
+(Paste your ss results here)
+Notes
+
+
+Open ports:
+
+
+Services running:
+
+
+Anything unexpected:
+
+
+
+---
+
+# 📁 **`bug-bounty/day01-observations.md`**
+
+```markdown
+# 🔐 Day 1 – Bug Bounty Parameter Observations
+
+Goal: Begin noticing URL patterns used in IDOR, access control bugs, etc.
+
+---
+
+## URLs Observed Today
+
+| Date | Site | URL / Parameter | Notes |
+|------|------|------------------|-------|
+|      |      |                  |       |
+
+Look for patterns like:
+- `?id=123`
+- `?user=44`
+- `/api/v1/`
+- `/profile/99`
+
+---
+
+## Notes
+- Today I focused on spotting query parameters.
+- Building pattern awareness early helps with IDOR hunting later.
+
+
+📁 reflections/day01-summary.md
+# 🌙 Day 1 – Reflection & Summary
+
+## What I Learned Today
+- Basic networking concepts
+- How to find my own IP
+- How to see packet paths with traceroute
+- How to check running services with ss
+- The role of ports in communication
+
+---
+
+## What Was Easy
+- Running commands
+- Understanding IP basics
+
+---
+
+## What Was Confusing
+(Add anything unclear here)
+
+---
+
+## What I Want to Review Tomorrow
+- Understanding subnets
+- Memorizing top ports (22, 23, 80, 443, 139, 445)
+
+---
+
+## Final Thoughts
+Day 1 complete.  
+Feeling focused, aligned, and building real hacker discipline. ⚡
+
+
+🌟 Your Day 1 GitHub is now ready.
+Just copy/paste each file into GitHub with the folders intact.
+If you want, I can also generate:
+📁 Day 2 GitHub (Linux Basics)
+📄 PDFs for Day 1
+🧠 Daily tasks for all 14 days of Week 1
+📊 A Notion dashboard for Week 1
+Just say:
+“bestie let’s do Day 2 GitHub” or
+“bestie I want the PDF”
