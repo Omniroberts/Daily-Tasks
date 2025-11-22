@@ -1,0 +1,342 @@
+# 🐧 Day 2 – Linux Essentials & System Awareness
+
+This folder contains all work from **Day 2** of my pentesting journey.
+Focus: *Linux fundamentals, filesystem navigation, permissions, processes, and services.*
+
+---
+
+## 📌 Goals for Day 2
+
+- Understand the Linux filesystem structure  
+- Navigate using the terminal  
+- Learn basic file + directory commands  
+- View and manage processes  
+- Understand permissions (rwx)  
+- Understand users, groups, and ownership  
+- Learn how Linux services run  
+- Begin light bash muscle memory
+
+---
+
+## 📁 Structure
+
+concepts/ → Linux theory notes
+commands/ → today's terminal output
+exercises/ → hands-on tasks
+bug-bounty/ → how Linux skills apply to hacking
+reflections/ → summary of what I learned
+
+yaml
+Copy code
+
+---
+
+## 🧠 Skills Learned Today
+
+- Listing directories  
+- Creating/moving/deleting files  
+- Understanding `chmod`, `chown`, `sudo`  
+- Reading logs  
+- Checking running services  
+- Recognizing privilege escalation paths  
+- Understanding Linux as a pentesting target
+
+---
+
+Day 2 complete. 🚀
+📁 concepts/linux-basics.md
+markdown
+Copy code
+# 📘 Day 2 – Linux Basics
+
+## ⭐ Linux Filesystem Structure
+
+Important directories:
+
+- `/home` → user files  
+- `/etc` → configuration files  
+- `/var` → logs, server data  
+- `/usr` → installed software  
+- `/bin` → essential system commands  
+- `/opt` → optional applications  
+
+---
+
+## ⭐ Basic Linux Commands
+
+ls → list files
+cd → change directory
+pwd → show current directory
+mkdir → create folder
+touch → create file
+cp → copy file
+mv → move/rename file
+rm → delete file
+
+yaml
+Copy code
+
+---
+
+## ⭐ Permissions (rwx)
+
+Format:
+r = read
+w = write
+x = execute
+
+makefile
+Copy code
+
+Example:
+-rwxr-x---
+
+yaml
+Copy code
+Broken down:
+- user: rwx  
+- group: r-x  
+- others: ---  
+
+---
+
+## ⭐ Changing Permissions
+
+chmod 755 file
+chmod +x script.sh
+
+yaml
+Copy code
+
+---
+
+## ⭐ Ownership
+
+chown user:group file
+
+yaml
+Copy code
+
+---
+
+## ⭐ Processes & Services
+
+ps aux → list processes
+systemctl → manage services
+
+yaml
+Copy code
+
+---
+
+## ⭐ Package Management
+
+sudo apt update
+sudo apt install <package>
+
+Copy code
+📁 commands/filesystem-navigation.md
+markdown
+Copy code
+# 📁 Day 2 – Filesystem Navigation Commands
+
+## Commands Practiced
+
+```bash
+pwd
+ls -la
+cd /home
+mkdir testdir
+touch testfile.txt
+cp testfile.txt testdir/
+mv testfile.txt renamedfile.txt
+rm renamedfile.txt
+Notes
+I learned how to move around the Linux filesystem.
+
+I practiced creating, moving, copying, and deleting files/folders.
+
+ls -la shows hidden files and permissions.
+
+yaml
+Copy code
+
+---
+
+# 📁 **`commands/permissions.md`**
+
+```markdown
+# 🔐 Permissions & Ownership Commands – Day 2
+
+## Commands Used
+
+```bash
+ls -l
+chmod 755 testfile.txt
+chmod +x script.sh
+chown root:root testfile.txt
+sudo chown $USER:$USER testfile.txt
+Notes
+Understanding rwx is key for privilege escalation.
+
+chmod +x makes a file executable.
+
+Ownership controls who can access or modify files.
+
+yaml
+Copy code
+
+---
+
+# 📁 **`commands/processes-and-services.md`**
+
+```markdown
+# 🧩 Processes & Services – Day 2
+
+## Commands Used
+
+```bash
+ps aux
+top
+systemctl status ssh
+systemctl start ssh
+systemctl stop apache2
+Notes
+I can now check running processes.
+
+I learned how services are controlled on Linux.
+
+This is essential for finding misconfigurations during pentests.
+
+yaml
+Copy code
+
+---
+
+# 📁 **`commands/package-management.md`**
+
+```markdown
+# 📦 Package Management – Day 2
+
+## Commands Used
+
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install nmap
+sudo apt install net-tools
+Notes
+Installing tools is part of real pentesting.
+
+apt update refreshes package lists.
+
+apt install adds new tools to Kali.
+
+yaml
+Copy code
+
+---
+
+# 📁 **`exercises/day02-linux-tasks.md`**
+
+```markdown
+# 📝 Day 2 – Hands-On Linux Tasks
+
+## Task 1 — Navigate Linux
+- Move into `/home`
+- Create a folder
+- Create a file inside it
+- Rename the file
+- Delete it
+
+## Task 2 — Permissions
+- Create a file called `runme.sh`
+- Add text inside (echo "hello world")
+- Make it executable using:
+chmod +x runme.sh
+
+markdown
+Copy code
+
+## Task 3 — Processes
+- Use `ps aux` to find:
+  - The ssh service
+  - The top 5 memory-heavy processes
+
+## Task 4 — Services
+- Check if SSH service is active:
+systemctl status ssh
+
+powershell
+Copy code
+
+## Task 5 — Install a package
+Install netcat or curl:
+sudo apt install netcat
+
+Copy code
+📁 bug-bounty/linux-recon-value.md
+markdown
+Copy code
+# 🔍 Day 2 – Why Linux Skills Matter for Bug Bounty
+
+Most bug bounty programs run Linux servers.
+
+Understanding Linux helps you:
+- Read server config files
+- Understand web app deployment
+- Analyze permissions issues
+- Identify misconfigurations
+- Recognize dangerous service settings
+- Understand log files
+- Exploit poorly configured cron jobs
+- Detect insecure file permissions
+
+Becoming comfortable in Linux = becoming dangerous as a hacker.
+📁 reflections/day02-summary.md
+markdown
+Copy code
+# 🌙 Day 2 – Reflection & Summary
+
+## What I Learned Today
+- Basics of Linux filesystem
+- How permissions work
+- How to use chmod and chown
+- How services run in Linux
+- How to install packages
+
+## What Was Easy
+- Navigation and basic commands
+
+## What Was Hard
+(Add any confusion here)
+
+## What I Want to Review Tomorrow
+- More on permissions
+- Understanding systemctl better
+
+## Final Thoughts
+Today built my Linux foundation — I feel more confident in the terminal. 🐧⚡
+🌟 Bestie, Day 1 + Day 2 are officially DONE on GitHub.
+If you want next:
+
+✔️ Day 3 GitHub (Linux Advanced)
+✔️ Day 1 + Day 2 PDF versions
+✔️ A full 14-day Week 1 daily checklist
+✔️ A Notion dashboard for Week 1 + Week 2
+Just tell me:
+“bestie let’s do Day 3 GitHub” or
+“bestie I want the PDF”
+
+
+
+
+
+
+
+
+
+
+
+
+C
